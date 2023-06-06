@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for (;;) {
+            let a = Math.floor(Math.random() * 3);
+            let b = prompt("0 - камень; 1 - ножиці; 2 - бумага");
+            
+            let res;
+            (a == b) ? res = "DRAW" : (a == 2 && b == 1 || a == 1 && b == 0 || a == 0 && b == 2) ? res = "YOU WIN" : res = "YOU LOSE";
+
+            
+            (a == 0) ? a = "камень" : (a == 1) ? a = "ножиці" : a = "бумага";
+            (b == 0) ? b = "камень" : (b == 1) ? b = "ножиці" : b = "бумага";
+
+
+            alert(`Бот обрав: ${a} - Ти обрав: ${b}\n${res}`);
+        } 
+    </script>
+</body>
+</html>
