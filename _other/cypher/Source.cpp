@@ -32,6 +32,11 @@ bool is_png(std::wstring s) {
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	if (msg == WM_DESTROY)
 		PostQuitMessage(0);
+	else if (msg == WM_PARENTNOTIFY) {
+		HFONT hFont = CreateFont(16, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE, DEFAULT_CHARSET,
+			OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"Arial");
+		SendMessage((HWND)lParam, WM_SETFONT, (WPARAM)hFont, TRUE);
+	}
 	if (msg == WM_COMMAND) {
 		if (lParam == LPARAM(edit_1)) {
 			int nc = HIWORD(wParam);
